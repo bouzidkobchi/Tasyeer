@@ -398,7 +398,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     place: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    startTime: Schema.Attribute.DateTime;
+    startTime: Schema.Attribute.Date;
     type: Schema.Attribute.Enumeration<
       ['Scientifique', 'Sportif ', 'Culturel']
     > &
