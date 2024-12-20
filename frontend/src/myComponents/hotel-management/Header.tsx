@@ -10,14 +10,10 @@ import { colors } from "@/utils/colors"
 import { Input } from "@/components/ui/input"
 // import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { Auberge } from "./hostel-list/columns";
+import { Hotel } from "./hotels-list/columns";
 // import { Switch } from "@/components/ui/switch";
 
-export default function Header({
-    setData,
-}: {
-    setData: React.Dispatch<React.SetStateAction<Auberge[]>>;
-}) {
+export default function Header({setData}:{setData:React.Dispatch<React.SetStateAction<Hotel[]>>}){
 
     const [picture, setPicture] = useState<File | null>(null)
 
@@ -27,12 +23,12 @@ export default function Header({
                 <DialogTrigger >Add</DialogTrigger>
                 <DialogContent className="min-w-fit">
                     <DialogHeader>
-                        <DialogTitle className={`text-[${colors.main}] mb-14 text-3xl`}>Add New Auberge</DialogTitle>
+                        <DialogTitle className={`text-[${colors.main}] mb-14 text-3xl`}>Add New Hotel</DialogTitle>
                         <div style={{marginBottom:'60px'}} className="flex gap-10 justify-between items-star mb-10">
                             <div className="">
                                 {picture 
                                 ? <img src={URL.createObjectURL(picture)} alt="" className="min-w-[300px] min-h-[280px] object-contain border rounded-3xl" />
-                                :<div className="flex justify-center items-center w-[330px] h-[330px] overflow-hidden border-2 border-dashed rounded-3xl border-gray-400">
+                                :<div className="flex justify-center items-center w-[240px] h-[240px] overflow-hidden border-2 border-dashed rounded-3xl border-gray-400">
                                     <label htmlFor="picture">
                                         <img src="/src/assets/upload img.png" alt="" className="cursor-pointer hover:opacity-70 w-[60px] h-[60px]" />
                                         {/* <img src="/src/assets/upload1.png" alt="" className="absolute hover:hidden cursor-pointer w-[40px] h-[40px]" /> */}
@@ -56,21 +52,10 @@ export default function Header({
                                     <label htmlFor="Place" className="min-w-fit font-medium">Place</label>
                                     <Input  id="Place" type="text" className="h-fit w-full"/>
                                 </div>
-                                <div className="flex flex-col gap-2 justify-between mb-4 ">
-                                    <label htmlFor="Price" className="min-w-fit font-medium">Price</label>
-                                    <Input  id="Price" type="number" min={0} className="h-fit w-full"/>
-                                </div>
                                 <div className="flex flex-col gap-2 justify-between">
-                                    <label htmlFor="Capacity" className="min-w-fit font-medium">Capacity</label>
-                                    <Input  id="Capacity" type="number" min={0} className="h-fit w-full"/>
+                                    <label htmlFor="WebSiteURL" className="min-w-fit font-medium">WebSiteURL</label>
+                                    <Input  id="WebSiteURL" type="text" min={0} className="h-fit w-full"/>
                                 </div>
-                                
-                                {/* <div className="">
-                                    <label htmlFor="" className="flex gap-3 items-center font-medium">
-                                        Visibility 
-                                        <Switch />
-                                    </label>
-                                </div> */}
                             </div>
                         </div>
                         <Button className="mt-10 block">Create</Button>

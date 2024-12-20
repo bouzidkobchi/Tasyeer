@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
   collectionName: 'activities';
   info: {
+    description: '';
     displayName: 'Activity';
     pluralName: 'activities';
     singularName: 'activity';
@@ -383,7 +384,11 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    duration: Schema.Attribute.Integer;
+    duration: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -393,8 +398,12 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     place: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    startTime: Schema.Attribute.DateTime;
-    type: Schema.Attribute.String;
+    startTime: Schema.Attribute.Date;
+    type: Schema.Attribute.Enumeration<
+      ['Scientifique', 'Sportif ', 'Culturel']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Scientifique'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
