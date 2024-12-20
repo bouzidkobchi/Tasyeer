@@ -11,7 +11,7 @@ export default function PlaceManagement(){
     
 
     const [data, setData] = useState<Place[]>([]);
-
+    // console.log(data)
     return <>
         <Routes>
             <Route index element={

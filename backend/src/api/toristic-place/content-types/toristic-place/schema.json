@@ -4,7 +4,8 @@
   "info": {
     "singularName": "toristic-place",
     "pluralName": "toristic-places",
-    "displayName": "toristicPlace"
+    "displayName": "toristicPlace",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,15 +18,16 @@
     "place": {
       "type": "string"
     },
-    "pictures": {
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

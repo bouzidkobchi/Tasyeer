@@ -18,18 +18,18 @@
     "toPlace": {
       "type": "string"
     },
-    "fromTime": {
-      "type": "time"
-    },
-    "toTime": {
-      "type": "time"
-    },
     "type": {
       "type": "enumeration",
       "enum": [
         "train",
         "bus"
       ]
+    },
+    "fromTime": {
+      "type": "string"
+    },
+    "toTime": {
+      "type": "string"
     }
   }
 }
