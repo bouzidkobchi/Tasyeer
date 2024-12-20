@@ -511,6 +511,7 @@ export interface ApiToristicPlaceToristicPlace
   extends Struct.CollectionTypeSchema {
   collectionName: 'toristic_places';
   info: {
+    description: '';
     displayName: 'toristicPlace';
     pluralName: 'toristic-places';
     singularName: 'toristic-place';
@@ -529,10 +530,7 @@ export interface ApiToristicPlaceToristicPlace
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    pictures: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    picture: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     place: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -557,7 +555,7 @@ export interface ApiTransportTransport extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     fromPlace: Schema.Attribute.String;
-    fromTime: Schema.Attribute.Time;
+    fromTime: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -566,7 +564,7 @@ export interface ApiTransportTransport extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     toPlace: Schema.Attribute.String;
-    toTime: Schema.Attribute.Time;
+    toTime: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['train', 'bus']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

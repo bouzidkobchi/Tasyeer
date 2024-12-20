@@ -18,11 +18,13 @@ export const columns: ColumnDef<Place>[] = [
     header: "Id",
   },
   {
-    accessorKey: "pictures",
+    accessorKey: "picture",
     header: "IMAGE",
     cell:({row})=>{
+      const SERVER_URL = import.meta.env.VITE_SERVER_URL
+      console.log(SERVER_URL + row.getValue('picture')?.url)
       return <div>
-        <img src={import.meta.env.VITE_SERVER_URL + row.getValue('pictures')[0]?.url} alt="" className="object-cover bg-blue-400 w-10 h-10 rounded-xl" />
+        <img src={SERVER_URL + row.getValue('picture')?.url} alt="" className="object-cover w-10 h-10 rounded-xl" />
       </div>
     }
   },
