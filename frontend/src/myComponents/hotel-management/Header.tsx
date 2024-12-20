@@ -15,7 +15,9 @@ import { Hotel } from "./hotels-list/columns";
 
 export default function Header({ setData }: { setData: React.Dispatch<React.SetStateAction<Hotel[]>> }) {
     const [picture, setPicture] = useState<File | null>(null);
+    const [open, setOpen] = useState(false);
 
+    
     const initialValues = {
         name: "",
         place: "",
