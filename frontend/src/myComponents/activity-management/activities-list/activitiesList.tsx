@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Activity, columns } from "./columns";
 import { DataTable } from "./Table";
 
-export default function DemoPage() {
-  const [data, setData] = useState<Activity[]>([]);
+export default function DemoPage({data, setData}:{data:Activity[], setData:React.Dispatch<React.SetStateAction<Activity[]>>}) {
+  
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function DemoPage() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`, // Example token
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`, 
         },
 
       });
