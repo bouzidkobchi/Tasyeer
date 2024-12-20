@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transports",
+  "info": {
+    "singularName": "transport",
+    "pluralName": "transports",
+    "displayName": "transport",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fromPlace": {
+      "type": "string"
+    },
+    "toPlace": {
+      "type": "string"
+    },
+    "fromTime": {
+      "type": "time"
+    },
+    "toTime": {
+      "type": "time"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "train",
+        "bus"
+      ]
+    }
+  }
+}
