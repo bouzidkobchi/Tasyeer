@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "toristic_places",
+  "info": {
+    "singularName": "toristic-place",
+    "pluralName": "toristic-places",
+    "displayName": "toristicPlace"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "place": {
+      "type": "string"
+    },
+    "pictures": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
