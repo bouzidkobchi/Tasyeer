@@ -1,22 +1,22 @@
 import { Route, Routes } from "react-router-dom";
 import PageTitle from "../general/PageTitle";
-import UserDetails from "./user details/UserDetails";
-import DemoPage from "./users list/UsersList";
+import HotelDetails from "./hostel-details/HostelDetails";
+import DemoPage from "./hostel-list/hostelsList";
 
 
-export default function UserManagement(){
+export default function HostelManagement(){
     return <>
         <Routes>
             <Route index element={
                 <div className=''>
-                    <PageTitle subTitle="manage users" title="Users List"/>
+                    <PageTitle subTitle="manage Hostels" title="Hostels List"/>
                     <DemoPage />
                 </div>
             }/>
             <Route path="user-details/:id" element={
                 <div className=''>
                     <PageTitle title="User Details"/>
-                    <UserDetails />
+                    <HotelDetails />
                 </div>
             }/>
             

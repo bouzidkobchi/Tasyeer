@@ -21,7 +21,7 @@ export const Login=()=>{
                 <label htmlFor="password" className="ml-1">Password</label>
                 <Input type="password" id="password" placeholder="Enter your Password" className="w-[300px]"/>
             </div>
-            <Button className="w-full my-4 mb-6 " onClick={()=>navigate('/app/dashboard')}>Login In</Button>
+            <Button className="w-full my-4 mb-6 " onClick={()=>navigate('/app/admins-management')}>Login In</Button>
         </div>
     </div>
 }
