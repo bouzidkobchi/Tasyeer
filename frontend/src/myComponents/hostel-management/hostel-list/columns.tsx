@@ -1,5 +1,6 @@
 
 import { ColumnDef } from "@tanstack/react-table"
+import { env } from "process"
 import { ActionCell } from "./ActionCell"
 
 // This type is used to define the shape of our data.
@@ -22,8 +23,8 @@ export const columns: ColumnDef<Auberge>[] = [
     accessorKey: "picture",
     header: "IMAGE",
     cell:({row})=>{
-      return <div className="">
-        <img src={row.getValue('picture')} alt="" className="object-cover bg-blue-400 w-10 h-10 rounded-xl" />
+      return <div>
+        <img src={import.meta.env.VITE_SERVER_URL + row.getValue('picture')?.url} alt="" className="object-cover w-10 h-10 rounded-xl" />
       </div>
     }
   },

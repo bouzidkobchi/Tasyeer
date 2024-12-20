@@ -15,7 +15,7 @@ export default function DemoPage({data, setData}:{data:Auberge[], setData:React.
       setLoading(true);
       const API_URL = import.meta.env.VITE_API_URL;
 
-      const res = await fetch(API_URL + `/api/auberges`, {
+      const res = await fetch(API_URL + `/api/auberges?populate=*`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

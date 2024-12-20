@@ -15,38 +15,24 @@ export type Place = {
 export const columns: ColumnDef<Place>[] = [
   {
     accessorKey: "id",
-    header: "#Id",
+    header: "Id",
   },
   {
-    accessorKey: "image",
+    accessorKey: "pictures",
     header: "IMAGE",
     cell:({row})=>{
-      return <div className="">
-        <img src={row.getValue('image')} alt="" className="object-cover bg-blue-400 w-10 h-10 rounded-xl" />
+      return <div>
+        <img src={import.meta.env.VITE_SERVER_URL + row.getValue('pictures')[0]?.url} alt="" className="object-cover bg-blue-400 w-10 h-10 rounded-xl" />
       </div>
     }
   },
   {
-    accessorKey: "title",
-    header: "Title",
-    cell:({row})=>{
-      return <div className="">
-        <h1 className='font-medium text-gray-600'>{row.getValue('title')}</h1>
-      </div>
-    }
+    accessorKey: "name",
+    header: "Name",
   },
   {
-    accessorKey: "category",
-    header: "Category",
-    cell:({row})=>{
-      return <div className="">
-        <h1 className='font-medium text-center rounded-xl p-2  w-fit px-3 border border-purple bg-purple-100 text-purple-600 '>{row.getValue('category')}</h1>
-      </div>
-    }
-  },
-  {
-    accessorKey: "location",
-    header: "Location",
+    accessorKey: "place",
+    header: "Place",
   },
   {
     header:'Action',

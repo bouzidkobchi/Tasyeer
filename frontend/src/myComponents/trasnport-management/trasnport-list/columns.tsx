@@ -7,54 +7,43 @@ import { ActionCell } from "./ActionCell"
 export type Transport = {
   id: string
   type:string
-  startTime:string
-  startLocation:string  
-  arrivalLocation:string
+  fromTime:string  
+  toTime:string
+  fromPlace:string
+  toPlace:string
 }
 
 export const columns: ColumnDef<Transport>[] = [
-  
+  {
+    accessorKey: "id",
+    header: "Id",
+  },
   {
     accessorKey: "type",
     header: "Type",
     cell:({row})=>{
       const type = row.getValue('type')
-      return <div className="">
+      return <div>
         <h1 className={`font-medium text-center p-1 w-fit px-2 rounded-xl text-gray-600 border ${type=='train' ? 'border-green-600 bg-green-100 text-green-600 font-medium' : 'border-blue-600 bg-blue-100 text-blue-600 font-medium'}`}>{row.getValue('type')}</h1>
       </div>
     }
   },
   {
-    accessorKey: "startLocation",
+    accessorKey: "fromPlace",
     header: "Start Location",
   },
   {
-    accessorKey: "arrivalLocation",
+    accessorKey: "toPlace",
     header: "Arrival Location",
   },
   {
-    accessorKey: "startTime",
-    header: "Start ",
+    accessorKey: "fromTime",
+    header: "Start Time",
   },
   {
-    accessorKey: "duration",
-    header: "Duration",
+    accessorKey: "toTime",
+    header: "End Time",
   },
-  // {
-  //   accessorKey: "cartStatus",
-  //   header: "Cart Status",
-  //   cell:({row})=>{
-  //     const status = row.getValue('cartStatus')
-  //     const style = status==='Activated' ? 
-  //           'bg-green-100 text-green-500 border-green-300' :
-  //           status==='Disactivated' 
-  //           ? 'bg-orange-200 text-orange-500 border-orange-300'
-  //           : 'bg-red-200 text-red-500 border-red-300'
-  //     return <div className={`font-medium ${style}  rounded-xl w-fit p-1 px-2  border`}>
-  //       {row.getValue('cartStatus')}
-  //     </div>
-  //   }
-  // },
   {
     header:'Action',
     cell:()=><ActionCell />

@@ -2,17 +2,6 @@ import { useEffect, useState } from "react"
 import { Place, columns } from "./columns"
 import { DataTable } from "./Table"
 
-function getData():Place[]{
-  return [
-    {
-      id: 'fjkdsl',
-      title: 'Khaled',
-      image:'/src/assets/user.jpg',
-      location:"hda el dar",
-      category:'gardient'
-    },
-  ]
-}
 
 export default function DemoPage({data, setData}:{data:Place[], setData:React.Dispatch<React.SetStateAction<Place[]>>}) {
   
@@ -27,7 +16,7 @@ export default function DemoPage({data, setData}:{data:Place[], setData:React.Di
       setLoading(true);
       const API_URL = import.meta.env.VITE_API_URL;
 
-      const res = await fetch(API_URL + `/api/toristic-places`, {
+      const res = await fetch(API_URL + `/api/toristic-places?populate=*`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
