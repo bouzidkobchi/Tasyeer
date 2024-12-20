@@ -16,7 +16,7 @@
       "type": "string"
     },
     "startTime": {
-      "type": "datetime"
+      "type": "date"
     },
     "place": {
       "type": "string"
