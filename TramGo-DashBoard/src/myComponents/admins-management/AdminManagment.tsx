@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import PageTitle from "../general/PageTitle";
 import UserDetails from "./admins-details/AdminDetails";
 import DemoPage from "./admins-list/AdminsList";
+import Header from "./Header";
 
 
 export default function AdminManagement(){
@@ -10,6 +11,7 @@ export default function AdminManagement(){
             <Route index element={
                 <div className=''>
                     <PageTitle subTitle="manage Admins" title="Admins List"/>
+                    <Header />
                     <DemoPage />
                 </div>
             }/>
