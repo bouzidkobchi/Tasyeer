@@ -26,7 +26,6 @@ export default function HostelManagement(){
                     <HotelDetails />
                 </div>
             }/>
-            
         </Routes>
     </>
 }
