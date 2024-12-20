@@ -4,17 +4,19 @@ import { ActionCell } from "./ActionCell"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type User = {
+export type Place = {
   id: string
-  fullName: string
-  cartStatus: "Activated" | "Disactivated" | "Blocked"
-  email: string
-  phone:string
-  subscription:string,
-  image?:string
+  title: string
+  image: string
+  location: string
+  category: string
 }
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<Place>[] = [
+  {
+    accessorKey: "id",
+    header: "#Id",
+  },
   {
     accessorKey: "image",
     header: "IMAGE",
@@ -25,36 +27,26 @@ export const columns: ColumnDef<User>[] = [
     }
   },
   {
-    accessorKey: "fullName",
-    header: "Full Name",
+    accessorKey: "title",
+    header: "Title",
     cell:({row})=>{
       return <div className="">
-        <h1 className='font-medium text-gray-600'>{row.getValue('fullName')}</h1>
+        <h1 className='font-medium text-gray-600'>{row.getValue('title')}</h1>
       </div>
     }
   },
   {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "phone",
-    header: "Phone",
-  },
-  {
-    accessorKey: "cartStatus",
-    header: "Cart Status",
+    accessorKey: "category",
+    header: "Category",
     cell:({row})=>{
-      const status = row.getValue('cartStatus')
-      const style = status==='Activated' ? 
-            'bg-green-100 text-green-500 border-green-300' :
-            status==='Disactivated' 
-            ? 'bg-orange-200 text-orange-500 border-orange-300'
-            : 'bg-red-200 text-red-500 border-red-300'
-      return <div className={`font-medium ${style}  rounded-xl w-fit p-1 px-2  border`}>
-        {row.getValue('cartStatus')}
+      return <div className="">
+        <h1 className='font-medium text-center rounded-xl p-2  w-fit px-3 border border-purple bg-purple-100 text-purple-600 '>{row.getValue('category')}</h1>
       </div>
     }
+  },
+  {
+    accessorKey: "location",
+    header: "Location",
   },
   {
     header:'Action',

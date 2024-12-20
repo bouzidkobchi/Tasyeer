@@ -4,13 +4,13 @@ import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom
 import UserManagement from "./myComponents/admins-management/AdminManagment"
 import SubscriptionsManagement from "./myComponents/subscriptions management/SubscriptionsManagement"
 import { Login } from "./myComponents/auth/Login"
-import DashBoard from "./myComponents/Dashboard/index.tsx"
+// import DashBoard from "./myComponents/Dashboard/index.tsx"
 import { LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import ActivityManagement from "./myComponents/activity-management/ActivityManagment"
 import HotelManagement from "./myComponents/hotel-management/HostelManagment"
 import HostelManagement from "./myComponents/hostel-management/HostelManagment"
-import TrasnportManagement from "./myComponents/trasnport-management/HostelManagment"
+import TrasnportManagement from "./myComponents/trasnport-management/TransportManagment"
 import PlaceManagement from "./myComponents/Places-management/PlaceManagment"
 import { Button } from "@mui/material"
 import EventsManagement from "./myComponents/events management/EventsManagement"
@@ -29,7 +29,7 @@ function App() {
                 <Outlet />
               </div>
             </div>}>
-            <Route path="dashboard" element={<DashBoard />}/>
+            {/* <Route path="dashboard" element={<DashBoard />}/> */}
             <Route path="users-management/*" element={<UserManagement />}/>
             <Route path="admins-management/*" element={<UserManagement />}/>
             <Route path="hotels-management/*" element={<HotelManagement />}/>

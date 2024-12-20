@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import PageTitle from "../general/PageTitle";
 import HotelDetails from "./place-details/PlaceDetails";
 import DemoPage from "./place-list/placeList";
+import Header from "./Header";
 
 
 export default function PlaceManagement(){
@@ -10,6 +11,7 @@ export default function PlaceManagement(){
             <Route index element={
                 <div className=''>
                     <PageTitle subTitle="manage Places" title="Places List"/>
+                    <Header />
                     <DemoPage />
                 </div>
             }/>

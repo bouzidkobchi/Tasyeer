@@ -22,25 +22,32 @@ export default function Header(){
             <DialogTrigger >Add</DialogTrigger>
             <DialogContent className="min-w-fit">
               <DialogHeader>
-                <DialogTitle className={`text-[${colors.main}] mb-14 text-3xl`}>Add New Sub-Admin</DialogTitle>
+                <DialogTitle className={`text-[${colors.main}] mb-14 text-3xl`}>Add New Activity</DialogTitle>
                 <div style={{marginBottom:'60px'}} className="flex gap-10 justify-between items-star mb-10">
                     
                     <div className="w-full">
-                        <div className="flex flex-col gap-2 justify-between mb-4 ">
+                        <div className="flex flex-col gap-2 justify-between mb-4 min-w-[300px]">
                             <label htmlFor="title" className="min-w-fit font-medium">Title</label>
                             <Input  id="title" type="text" className="h-fit w-full"/>
                         </div>
-                        <div className="flex flex-col gap-2 justify-between mb-4 ">
-                            <label htmlFor="type" className="min-w-fit font-medium">Type</label>
-                            <Input  id="type" type="text" className="h-fit w-full"/>
+                        <div className="flex gap-2"> 
+                            <div className="flex flex-col gap-2 justify-between mb-4 min-w-[300px]">
+                                <label htmlFor="type" className="min-w-fit font-medium">Type</label>
+                                <Input  id="type" type="text" className="h-fit w-full"/>
+                            </div>
+                            <div className="flex flex-col gap-2 justify-between mb-4 min-w-[300px]">
+                                <label htmlFor="duration" className="min-w-fit font-medium">Duration (in days)</label>
+                                <Input  id="duration" type="text" className="h-fit w-full"/>
+                            </div>
                         </div>
-                        <div className="flex flex-col gap-2 justify-between mb-4 ">
-                            <label htmlFor="duration" className="min-w-fit font-medium">Duration</label>
-                            <Input  id="duration" type="text" className="h-fit w-full"/>
-                        </div>
+                        
                         <div className="flex flex-col gap-2 justify-between mb-4 ">
                             <label htmlFor="place" className="min-w-fit font-medium">Place</label>
                             <Input  id="place" type="text" className="h-fit w-full"/>
+                        </div>
+                        <div className="flex flex-col gap-2 justify-between mb-4 ">
+                            <label htmlFor="date" className="min-w-fit font-medium">Start Date</label>
+                            <Input  id="date" type="date" className="h-fit w-full"/>
                         </div>
                         {/* <div className="">
                             <label htmlFor="" className="flex gap-3 items-center font-medium">
