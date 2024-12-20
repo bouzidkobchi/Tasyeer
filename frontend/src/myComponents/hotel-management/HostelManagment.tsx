@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import PageTitle from "../general/PageTitle";
+
+import Header from "./Header";
 import HotelDetails from "./hotel-details/HotelDetails";
 import DemoPage from "./hotels-list/hotelsList";
 
@@ -10,6 +12,7 @@ export default function HotelManagement(){
             <Route index element={
                 <div className=''>
                     <PageTitle subTitle="manage Hotels" title="Hotels List"/>
+                    <Header/>
                     <DemoPage />
                 </div>
             }/>
