@@ -1,25 +1,51 @@
-import { useEffect, useState } from "react"
-import { Activity, columns } from "./columns"
-import { DataTable } from "./Table"
-
-function getData():Activity[]{
-  return [
-
-  ]
-}
+import { useEffect, useState } from "react";
+import { Activity, columns } from "./columns";
+import { DataTable } from "./Table";
 
 export default function DemoPage() {
+  const [data, setData] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(false);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const [data, setData] = useState<Activity[]>([])
-    useEffect(()=>{
-        const data1 = getData()
-        setData(data1)
-    },[])
+  useEffect(() => {
+    getActivities();
+  }, []);
+
+  const getActivities = async () => {
+    try {
+      setLoading(true);
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      const res = await fetch(API_URL + `/api/activities`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`, // Example token
+        },
+
+      });
+
+      if (!res.ok) {
+        throw new Error(`Error: ${res.status}`);
+      }
+
+      const result = await res.json();
+      // console.log(result)
+      setData(result.data)
+      // setData(result);
+    } catch (error) {
+      console.error("Failed to fetch activities:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <DataTable columns={columns} data={data} />
+      )}
     </div>
-  )
+  );
 }

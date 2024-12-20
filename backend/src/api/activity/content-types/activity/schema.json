@@ -4,7 +4,8 @@
   "info": {
     "singularName": "activity",
     "pluralName": "activities",
-    "displayName": "Activity"
+    "displayName": "Activity",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,17 +15,26 @@
     "name": {
       "type": "string"
     },
-    "type": {
-      "type": "string"
-    },
     "startTime": {
       "type": "datetime"
     },
-    "duration": {
-      "type": "integer"
-    },
     "place": {
       "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Scientifique",
+        "Sportif ",
+        "Culturel"
+      ],
+      "required": true,
+      "default": "Scientifique"
+    },
+    "duration": {
+      "type": "string",
+      "maxLength": 30,
+      "required": true
     }
   }
 }

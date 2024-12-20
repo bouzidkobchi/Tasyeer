@@ -23,22 +23,26 @@ export const columns: ColumnDef<Activity>[] = [
   //     </div>
   //   }
   // },
-  {
-    accessorKey: "name",
-    header: "Title",
-    cell:({row})=>{
-      return <div className="">
-        <h1 className='font-medium text-gray-600'>{row.getValue('fullName')}</h1>
-      </div>
-    }
-  },
+  // {
+  //   accessorKey: "name",
+  //   header: "Title",
+  //   cell:({row})=>{
+  //     return <div className="">
+  //       <h1 className='font-medium text-gray-600'>{row.getValue('fullName')}</h1>
+  //     </div>
+  //   }
+  // },
   {
     accessorKey: "type",
     header: "Type",
   },
   {
     accessorKey: "startTime",
-    header: "Start Time",
+    header: "Start Date",
+    cell:({row})=>{
+      const date:string = row.getValue("startTime")
+      return <div>{date.substring(0,10)}</div>
+    }
   },
   {
     accessorKey: "duration",

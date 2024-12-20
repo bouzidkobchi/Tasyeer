@@ -17,7 +17,6 @@ import EventsManagement from "./myComponents/events management/EventsManagement"
 
 
 function App() {
-
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <BrowserRouter basename="/">
