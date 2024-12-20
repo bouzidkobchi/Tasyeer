@@ -14,6 +14,10 @@ export type Hotel = {
 
 export const columns: ColumnDef<Hotel>[] = [
   {
+    accessorKey: "id",
+    header: "Id",
+  },
+  {
     accessorKey: "picture",
     header: "IMAGE",
     cell:({row})=>{

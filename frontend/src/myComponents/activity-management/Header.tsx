@@ -8,14 +8,12 @@ import {
 } from "@/components/ui/dialog"
 import { colors } from "@/utils/colors"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
-import { Switch } from "@/components/ui/switch";
+// import { Textarea } from "@/components/ui/textarea";
+// import { useState } from "react";
+// import { Switch } from "@/components/ui/switch";
 import { Activity } from "./activities-list/columns";
 
 export default function Header({setData}:{setData:React.Dispatch<React.SetStateAction<Activity[]>>}){
-
-    const [picture, setPicture] = useState<File | null>(null)
 
     return <div className="flex justify-end mb-6">
         <Button className={`text-green font-medium dbg-[${colors.main}] text-white py-0  flex  rounded-lg  px-3 `}>
