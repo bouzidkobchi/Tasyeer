@@ -10,7 +10,7 @@ export type Event = {
   publishDate: string,
   visibility: string,
   image:string,
-}
+} 
 
 export const columns: ColumnDef<Event>[] = [
   {
