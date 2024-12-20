@@ -11,22 +11,22 @@ export default function ActivityManagement(){
 
     const [data, setData] = useState<Activity[]>([])
 
-    return <>
-        <Routes>
-            <Route index element={
-                <div className=''>
-                    <PageTitle subTitle="manage users" title="Activities List"/>
-                    <Header setData={setData} />
-                    <DemoPage data={data} setData={setData}/>
-                </div>
-            }/>
-            <Route path="user-details/:id" element={
-                <div className=''>
-                    <PageTitle title="User Details"/>
-                    <ActivityDetails />
-                </div>
-            }/>
-            
-        </Routes>
-    </>
+    return (
+    <Routes>
+        <Route index element={
+            <div>
+                <PageTitle subTitle="manage Activities" title="Activities List"/>
+                <Header setData={setData} />
+                <DemoPage data={data} setData={setData}/>
+            </div>
+        }/>
+        <Route path="user-details/:id" element={
+            <div>
+                <PageTitle title="User Details"/>
+                <ActivityDetails />
+            </div>
+        }/>
+        
+    </Routes>
+        )
 }

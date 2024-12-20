@@ -3,16 +3,22 @@ import PageTitle from "../general/PageTitle";
 import HotelDetails from "./place-details/PlaceDetails";
 import DemoPage from "./place-list/placeList";
 import Header from "./Header";
+import { Place } from "./place-list/columns";
+import { useState } from "react";
 
 
 export default function PlaceManagement(){
+    
+
+    const [data, setData] = useState<Place[]>([]);
+
     return <>
         <Routes>
             <Route index element={
                 <div className=''>
                     <PageTitle subTitle="manage Places" title="Places List"/>
-                    <Header />
-                    <DemoPage />
+                    <Header setData={setData}/>
+                    <DemoPage data={data} setData={setData}/>
                 </div>
             }/>
             <Route path="user-details/:id" element={

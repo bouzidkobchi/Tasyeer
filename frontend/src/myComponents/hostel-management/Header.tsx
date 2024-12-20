@@ -10,9 +10,14 @@ import { colors } from "@/utils/colors"
 import { Input } from "@/components/ui/input"
 // import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { Auberge } from "./hostel-list/columns";
 // import { Switch } from "@/components/ui/switch";
 
-export default function Header(){
+export default function Header({
+    setData,
+}: {
+    setData: React.Dispatch<React.SetStateAction<Auberge[]>>;
+}) {
 
     const [picture, setPicture] = useState<File | null>(null)
 
