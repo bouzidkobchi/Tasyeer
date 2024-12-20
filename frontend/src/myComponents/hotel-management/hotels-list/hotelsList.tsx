@@ -15,7 +15,7 @@ export default function DemoPage({data, setData}:{data:Hotel[], setData:React.Di
       setLoading(true);
       const API_URL = import.meta.env.VITE_API_URL;
 
-      const res = await fetch(API_URL + `/api/hotels`, {
+      const res = await fetch(API_URL + `/api/hotels?populate=*`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -30,15 +30,16 @@ export default function DemoPage({data, setData}:{data:Hotel[], setData:React.Di
 
       const result = await res.json();
       // console.log(result)
+      console.log(result.data)
       setData(result.data)
       // setData(result);
     } catch (error) {
-      console.error("Failed to fetch activities:", error);
+      console.error("Failed to fetch hotels:", error);
     } finally {
       setLoading(false);
     }
   };
-
+  console.log(data)
   return (
     <div className="container mx-auto py-10">
       {loading ? (

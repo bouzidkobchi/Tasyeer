@@ -13,16 +13,18 @@ export type Hotel = {
 }
 
 export const columns: ColumnDef<Hotel>[] = [
-  {
-    accessorKey: "id",
-    header: "Id",
-  },
+  // {
+  //   accessorKey: "id",
+  //   header: "Id",
+  // },
   {
     accessorKey: "picture",
     header: "IMAGE",
     cell:({row})=>{
+      const SERVER_URL = import.meta.env.VITE_SERVER_URL
+      console.log(SERVER_URL)
       return <div className="">
-        <img src={row.getValue('picture')} alt="" className="object-cover bg-blue-400 w-10 h-10 rounded-xl" />
+        <img src={SERVER_URL + row.getValue('picture')?.url} alt="" className="object-cover w-10 h-10 rounded-xl" />
       </div>
     }
   },
@@ -36,12 +38,12 @@ export const columns: ColumnDef<Hotel>[] = [
     }
   },
   {
-    accessorKey: "webSiteURL",
-    header: "WebSiteURL",
+    accessorKey: "Place",
+    header: "Place",
   },
   {
-    accessorKey: "place",
-    header: "Place",
+    accessorKey: "websiteURL",
+    header: "Link",
   },
   // {
   //   accessorKey: "cartStatus",

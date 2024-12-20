@@ -13,9 +13,9 @@ export default function SideBarLinks(){
         <SideBarLink to='/app/hostels-management' title="hostels Management" icon={<BedDouble size={'20'}/>}/>
         <SideBarLink to='/app/trasnport-management' title="Transport Management" icon={<CarTaxiFront size={'20'}/>}/>
         <SideBarLink to='/app/places-management' title="Places Management" icon={<Pyramid size={'20'}/>}/>
-        <SideBarLink to='/app/demands-management' title="Demands Management" icon={<BookUser size={20} />}/>
+        {/* <SideBarLink to='/app/demands-management' title="Demands Management" icon={<BookUser size={20} />}/>
         <SideBarLink to='/app/events-management' title="Events Management" icon={<CalendarFold size={20}/>}/>
-        <SideBarLink to='/app/subscriptions-management' title="Subscriptions Management" icon={<NotepadText size={20} />}/>
+        <SideBarLink to='/app/subscriptions-management' title="Subscriptions Management" icon={<NotepadText size={20} />}/> */}
         
     </div>
 }
