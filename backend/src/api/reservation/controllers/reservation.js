@@ -1,5 +1,3 @@
-// const { customError, sanitizeEntity } = require('@strapi/utils');
-
 module.exports = {
   async reserve(ctx) {
     try {
@@ -11,16 +9,14 @@ module.exports = {
 
       const startDate = new Date(fromTime);
       const endDate = new Date(toTime);
-      // @ts-ignore
       const dateDiff = (endDate - startDate) / (1000 * 60 * 60 * 24);
 
       for (let i = 0; i <= dateDiff; i++) {
         const currentDate = new Date(startDate);
         currentDate.setDate(startDate.getDate() + i);
-
         const dateString = currentDate.toISOString().split('T')[0];
 
-        // Check if the reservation exists
+        // Fetch reservation for the current date
         let reservation = await strapi.db.query('api::reservation.reservation').findOne({
           where: { date: dateString, auberge: aubergeId },
           populate: ['users', 'auberge'],
@@ -40,25 +36,27 @@ module.exports = {
               date: dateString,
               auberge: aubergeId,
               capacity: auberge.capacity,
-              users: [], // Initialize with an empty array
+              users: [], // Initialize as an empty array
             },
           });
-        } else {
-          reservation.users = reservation.users || []; // Ensure 'users' is an array
         }
+
+        // Ensure `users` is properly initialized
+        reservation.users = reservation.users || [];
 
         // Check capacity
         if (reservation.users.length >= reservation.capacity) {
           return ctx.conflict(`Reservation full for date: ${dateString}`);
         }
 
-        // Add user to the reservation
+        // Add user to the reservation if not already present
         const userExists = reservation.users.some((user) => user.id === userId);
         if (!userExists) {
+          const updatedUsers = [...reservation.users.map((u) => u.id), userId];
           await strapi.db.query('api::reservation.reservation').update({
             where: { id: reservation.id },
             data: {
-              users: [...reservation.users.map((u) => u.id), userId], // Safely update the users list
+              users: updatedUsers,
             },
           });
         }
@@ -66,7 +64,7 @@ module.exports = {
 
       ctx.send({ message: 'Reservation successful' });
     } catch (error) {
-      console.error(error);
+      console.error('Error during reservation:', error);
       ctx.internalServerError('An error occurred while processing the reservation');
     }
   },
