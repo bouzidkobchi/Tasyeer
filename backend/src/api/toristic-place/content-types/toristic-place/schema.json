@@ -36,6 +36,12 @@
         "gardens",
         "parks"
       ]
+    },
+    "let": {
+      "type": "string"
+    },
+    "long": {
+      "type": "string"
     }
   }
 }

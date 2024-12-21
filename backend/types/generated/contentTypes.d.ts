@@ -561,12 +561,14 @@ export interface ApiToristicPlaceToristicPlace
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    let: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::toristic-place.toristic-place'
     > &
       Schema.Attribute.Private;
+    long: Schema.Attribute.String;
     name: Schema.Attribute.String;
     picture: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     place: Schema.Attribute.String;
