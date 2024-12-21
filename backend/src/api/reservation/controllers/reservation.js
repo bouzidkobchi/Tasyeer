@@ -40,9 +40,11 @@ module.exports = {
               date: dateString,
               auberge: aubergeId,
               capacity: auberge.capacity,
-              users: [],
+              users: [], // Initialize with an empty array
             },
           });
+        } else {
+          reservation.users = reservation.users || []; // Ensure 'users' is an array
         }
 
         // Check capacity
@@ -51,12 +53,12 @@ module.exports = {
         }
 
         // Add user to the reservation
-        const userExists = reservation.users.find((user) => user.id === userId);
+        const userExists = reservation.users.some((user) => user.id === userId);
         if (!userExists) {
           await strapi.db.query('api::reservation.reservation').update({
             where: { id: reservation.id },
             data: {
-              users: [...reservation.users, userId],
+              users: [...reservation.users.map((u) => u.id), userId], // Safely update the users list
             },
           });
         }

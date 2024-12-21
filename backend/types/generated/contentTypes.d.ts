@@ -472,6 +472,43 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
+  collectionName: 'reservations';
+  info: {
+    description: 'Manages reservations for auberges';
+    displayName: 'Reservation';
+    pluralName: 'reservations';
+    singularName: 'reservation';
+  };
+  options: {
+    draftAndPublish: false;
+    timestamps: true;
+  };
+  attributes: {
+    auberge: Schema.Attribute.Relation<'manyToOne', 'api::auberge.auberge'> &
+      Schema.Attribute.Required;
+    capacity: Schema.Attribute.Integer & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reservation.reservation'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    users: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface ApiToristicComplexToristicComplex
   extends Struct.CollectionTypeSchema {
   collectionName: 'toristic_complexes';
@@ -1087,6 +1124,7 @@ declare module '@strapi/strapi' {
       'api::activity.activity': ApiActivityActivity;
       'api::auberge.auberge': ApiAubergeAuberge;
       'api::hotel.hotel': ApiHotelHotel;
+      'api::reservation.reservation': ApiReservationReservation;
       'api::toristic-complex.toristic-complex': ApiToristicComplexToristicComplex;
       'api::toristic-place.toristic-place': ApiToristicPlaceToristicPlace;
       'api::transport.transport': ApiTransportTransport;
