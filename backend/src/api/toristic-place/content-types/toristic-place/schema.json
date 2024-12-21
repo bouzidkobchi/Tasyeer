@@ -28,6 +28,14 @@
         "videos",
         "audios"
       ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "beaches",
+        "gardens",
+        "parks"
+      ]
     }
   }
 }

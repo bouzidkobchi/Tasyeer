@@ -13,7 +13,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-12-21T08:39:34.985Z"
+    "x-generation-date": "2024-12-21T08:48:02.275Z"
   },
   "openapi": "3.0.0",
   "x-strapi-config": {
@@ -9200,6 +9200,14 @@
                 ],
                 "example": "string or id"
               },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "beaches",
+                  "gardens",
+                  "parks"
+                ]
+              },
               "locale": {
                 "type": "string"
               },
@@ -9869,6 +9877,14 @@
               }
             }
           },
+          "category": {
+            "type": "string",
+            "enum": [
+              "beaches",
+              "gardens",
+              "parks"
+            ]
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -10051,6 +10067,14 @@
                       }
                     }
                   }
+                },
+                "category": {
+                  "type": "string",
+                  "enum": [
+                    "beaches",
+                    "gardens",
+                    "parks"
+                  ]
                 },
                 "createdAt": {
                   "type": "string",
